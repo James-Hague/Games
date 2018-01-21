@@ -17,9 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 
-public class GameMainClass implements ActionListener {
+public class FlappyBird implements ActionListener {
 
-    public  static GameMainClass flappyBird;
+    public  static FlappyBird flappyBird;
 
     public final int WIDTH = 800, HEIGHT = 900;
 
@@ -33,7 +33,7 @@ public class GameMainClass implements ActionListener {
     public ArrayList<Rectangle> columns;
 
 
-    public GameMainClass() {
+    public FlappyBird() {
 
        //JFRAME SETUP
         JFrame jFrame = new JFrame();
@@ -143,7 +143,7 @@ public class GameMainClass implements ActionListener {
 
     public static void main(String[] args) {
 
-        flappyBird = new GameMainClass();
+        flappyBird = new FlappyBird();
 
 
 
