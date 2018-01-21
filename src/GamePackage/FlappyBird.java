@@ -19,28 +19,31 @@ import javax.swing.Timer;
 
 public class FlappyBird implements ActionListener {
 
-    public  static FlappyBird flappyBird;
+    public static FlappyBird flappyBird;
 
-    public final int WIDTH = 800, HEIGHT = 900;
+    public final int WIDTH = 800, HEIGHT = 800;
 
     public Renderer renderer;
 
     public Rectangle Bird;
 
-    public int ticks,yMotion;
-
-
     public ArrayList<Rectangle> columns;
+
+    public int ticks, yMotion, score;
+
+    public boolean gameOver, started;
+
+    public Random rand;
+
 
 
     public FlappyBird() {
 
        //JFRAME SETUP
         JFrame jFrame = new JFrame();
-        Renderer renderer = new Renderer();
+        renderer = new Renderer();
         Timer timer = new Timer(20, this);
         // jframe settings
-
         jFrame.add(renderer);
         jFrame.setTitle("Flappy Bird Test");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,13 +51,9 @@ public class FlappyBird implements ActionListener {
         jFrame.setVisible(true); // make window visible
         jFrame.setResizable(false); // resize
         jFrame.setVisible(true); // make window visible
-// Player
+        // Player
         Bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
-// Columns
-
-
-
-
+        // Columns
         columns = new ArrayList<Rectangle>();
 
         addColumn(true);
@@ -98,6 +97,8 @@ public class FlappyBird implements ActionListener {
             }
 
             Bird.y += yMotion;
+
+            renderer.repaint();
         }
     }
 
@@ -123,7 +124,7 @@ public class FlappyBird implements ActionListener {
 
     public void paintColumn (Graphics g,Rectangle column) {
         // game columns
-        g.setColor(Color.green.brighter());
+        g.setColor(Color.green.darker().darker());
         g.fillRect(column.x,column.y,column.width,column.height);
     }
 
