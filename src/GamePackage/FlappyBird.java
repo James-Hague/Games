@@ -46,12 +46,22 @@ public class FlappyBird implements ActionListener {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(WIDTH,HEIGHT);
         jFrame.setVisible(true); // make window visible
-        jFrame.setResizable(true); // resize
+        jFrame.setResizable(false); // resize
         jFrame.setVisible(true); // make window visible
 // Player
         Bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
 // Columns
+
+
+
+
         columns = new ArrayList<Rectangle>();
+
+        addColumn(true);
+        addColumn(true);
+        addColumn(true);
+        addColumn(true);
+
         timer.start();
 
     }
@@ -144,6 +154,8 @@ public class FlappyBird implements ActionListener {
     public static void main(String[] args) {
 
         flappyBird = new FlappyBird();
+
+
 
 
 
